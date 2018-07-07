@@ -59,8 +59,8 @@ secondView =(object)=>{
     for (var k in composicion) {
         document.getElementById('composicion').innerHTML += k + ' ' + composicion[k] + ' ';
     }
-    message(object)
     alternative(object);
+    message(object)
     recyclingPoint(object);
 }
 message = (object) =>
@@ -86,7 +86,7 @@ alternative = (object) => {
             let alternative = responseJson.response.data
             alternative.forEach(element => {
                 for (var k in element) {
-                    document.getElementById('alternatives').innerHTML += k + ' ' + element[k] + ' ';
+                    document.getElementById('alternatives').innerHTML +=  ' ' + element[k] + '';
                 }   
             });
                       
