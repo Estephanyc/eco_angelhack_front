@@ -18,17 +18,27 @@
 
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row" id="first">
             <div class="col-12 col-md-7 form mx-auto">
-
                 <h1>EcoScan</h1>
                 <p>Conoce de que material son tus desechos y donde puedes depositarlos</p>
                 <form method="post" accept="image/gif,image/jpeg">
-                    <input type="file" name="pic" id="file">
-                    <buttom type="buttom" class="btn btn-primary" id="btn" onclick="sendImage()">enviar</buttom>
+                    <input type="file" type="submit" name="file" id="file" class="inputfile" onchange="previewImg(this.files[0])" />
+                    <label for="file">
+                        <i class="fas fa-upload"></i>Choose a file</label>
                 </form>
-                <div class="message">
-
+            </div>
+        </div>
+        <div class="row pd" id="second">
+            <div class="col-10 mx-auto">
+                <img src="" id="preview" alt="" class="img-fluid pd">
+                <div id="composicion">
+                </div>
+                <div id="message">
+                </div>
+                <div id="alternatives">
+                </div>
+                <div id="map">
                 </div>
             </div>
         </div>
