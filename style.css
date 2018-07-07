@@ -2,7 +2,7 @@
 h1{
     font-family: 'Exo',
     sans-serif;
-    margin: 10% 0;
+    margin: 8% 0;
 }
 p{
        color: #ff5252;
@@ -49,6 +49,9 @@ p{
 #second{
     display: none;
 }
+ #third {
+     display: none;
+ }
 #composicion
 {
     background: #fff7b1;
@@ -60,4 +63,8 @@ p{
 }
 .margin{
     margin: 3% 0;
+}
+.fa-recycle
+{
+font-size: 26px;
 }
