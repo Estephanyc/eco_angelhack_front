@@ -16,7 +16,7 @@ function sendImage() {
 
 var x = document.getElementById("demo");
 
-function getLocation() {
+window.onload = function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition);
     } else {
