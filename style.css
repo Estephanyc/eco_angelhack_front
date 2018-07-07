@@ -1,6 +1,4 @@
-body{
-     background-color: #f7f6f6;
-}
+
 h1{
     font-family: 'Exo',
     sans-serif;
@@ -50,4 +48,16 @@ p{
 }
 #second{
     display: none;
+}
+#composicion
+{
+    background: #fff7b1;
+    padding: 2%;
+}
+#alternatives {
+    background:#e5fbe5;
+    padding: 2%;
+}
+.margin{
+    margin: 3% 0;
 }

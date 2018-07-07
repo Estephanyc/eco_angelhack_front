@@ -1,6 +1,5 @@
 function previewImg(file) {
     var reader = new FileReader();
-
     reader.onload = function () {
         preview.src = reader.result;
     }
@@ -22,8 +21,6 @@ function sendImage(){
             console.log(error)
         });
 };
-<<<<<<< HEAD
-
 var x = document.getElementById("demo");
 
 window.onload = function getLocation() {
@@ -55,14 +52,15 @@ function showError(error) {
             break;
     }
 }
-=======
->>>>>>> 8c65a21468076839c30f41790b31479b306fd0e3
 secondView =(object)=>{
     document.getElementById('second').style.display = 'block';
     document.getElementById('first').style.display = 'none';
-    document.getElementById('composicion').innerHTML += JSON.stringify(object.response.data);
-    message(object)
+    let composicion = object.response.data.composicion
+    for (var k in composicion) {
+        document.getElementById('composicion').innerHTML += k + ' ' + composicion[k] + ' ';
+    }
     alternative(object);
+    message(object)
     recyclingPoint(object);
 }
 message = (object) =>
@@ -85,11 +83,13 @@ alternative = (object) => {
     fetch(`http://18.233.123.38:8000/reciclador/alternativas/${id}`)
         .then((response) => response.json())
         .then((responseJson) => {
-            responseJson.response.data.forEach(element => {
-                document.getElementById('alternatives').innerHTML += JSON.stringify(element);
-                console.log(element);
+            let alternative = responseJson.response.data
+            alternative.forEach(element => {
+                for (var k in element) {
+                    document.getElementById('alternatives').innerHTML +=  ' ' + element[k] + '';
+                }   
             });
-           
+                      
         })
         .catch((error) => {
             console.log(error)
