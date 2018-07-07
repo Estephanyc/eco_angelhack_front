@@ -22,6 +22,7 @@ function sendImage(){
             console.log(error)
         });
 };
+<<<<<<< HEAD
 
 var x = document.getElementById("demo");
 
@@ -54,6 +55,8 @@ function showError(error) {
             break;
     }
 }
+=======
+>>>>>>> 8c65a21468076839c30f41790b31479b306fd0e3
 secondView =(object)=>{
     document.getElementById('second').style.display = 'block';
     document.getElementById('first').style.display = 'none';
