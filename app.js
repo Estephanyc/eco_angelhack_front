@@ -107,9 +107,42 @@ mostrarMapa = (puntos) => {
     maximumAge: 0
   };
 
-  navigator.geolocation.getCurrentPosition(function(pos){
-    const latitud = pos.coords.latitude;
-    const longitud = pos.coords.longitude;
+  const latitud = -33.4162734;
+  const longitud = -70.5898275;
+
+  console.log(latitud);
+  console.log(longitud);
+
+  document.getElementById('second').style.display = 'none';
+  document.getElementById('third').style.display = 'block';
+  const mymap = L.map('map').setView([latitud, longitud], 50);
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZ3V0ZWZjbyIsImEiOiJjampjdXlqaG0zbXR3M3FvaGU5cG93ZXdlIn0.6b_Z9AeAgi1U7J4wiiX87w', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'your.mapbox.access.token'
+  }).addTo(mymap);
+  var marker = L.marker([latitud, longitud]).addTo(mymap);
+
+  var greenIcon = new L.Icon({
+    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  puntos.forEach(punto => {
+    L.marker([punto.lat, punto.long], {icon: greenIcon}).addTo(mymap);
+  });
+
+  /*navigator.geolocation.getCurrentPosition(function(pos){
+    const latitud = -33.4162734;
+    const longitud = -70.5898275;
+
+    console.log(latitud);
+    console.log(longitud);
 
     document.getElementById('second').style.display = 'none';
     document.getElementById('third').style.display = 'block';
@@ -138,7 +171,7 @@ mostrarMapa = (puntos) => {
 
   }, function(err){
     console.log('ERROR', err);
-  }, options);
+  }, options);*/
 }
 
 recyclingPoint = (object) => {
