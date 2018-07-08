@@ -123,6 +123,7 @@ mostrarMapa = (puntos) => {
       accessToken: 'your.mapbox.access.token'
   }).addTo(mymap);
   var marker = L.marker([latitud, longitud]).addTo(mymap);
+  marker.bindPopup("<b>Estás aquí!</b>").openPopup();
 
   var greenIcon = new L.Icon({
     iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
@@ -134,7 +135,7 @@ mostrarMapa = (puntos) => {
   });
 
   puntos.forEach(punto => {
-    L.marker([punto.lat, punto.long], {icon: greenIcon}).addTo(mymap);
+    var marker = L.marker([punto.lat, punto.long], {icon: greenIcon}).addTo(mymap).bindPopup("<b>" + punto.titulo +  "</b>").openPopup();
   });
 
   /*navigator.geolocation.getCurrentPosition(function(pos){
