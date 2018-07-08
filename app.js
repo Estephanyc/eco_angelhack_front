@@ -14,7 +14,7 @@ function sendImage(){
     var data = new FormData()
     data.append('image', image[0])
 
-    fetch('http://localhost:8000/reciclador/subir', {
+    fetch('http://18.233.123.38:8000/reciclador/subir', {
         method: 'POST',
         body: data,
     })
@@ -70,7 +70,7 @@ message = (object) =>
 {
     let id = object.response.data.objeto_id;
     console.log(id)
-    fetch(`http://localhost:8000/reciclador/mensaje/${id}`)
+    fetch(`http://18.233.123.38:8000/reciclador/mensaje/${id}`)
         .then((response) => response.json())
         .then((responseJson) => {
             document.getElementById('message').innerHTML = responseJson.response.data;
@@ -83,7 +83,7 @@ message = (object) =>
 alternative = (object) => {
     let id = object.response.data.objeto_id;
     console.log(id)
-    fetch(`http://localhost:8000/reciclador/alternativas/${id}`)
+    fetch(`http://18.233.123.38:8000/reciclador/alternativas/${id}`)
         .then((response) => response.json())
         .then((responseJson) => {
             let alternative = responseJson.response.data
