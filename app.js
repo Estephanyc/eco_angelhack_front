@@ -14,7 +14,7 @@ function sendImage(){
     var data = new FormData()
     data.append('image', image[0])
 
-    fetch('http://localhost:8000/reciclador/subir', {
+    fetch('http://18.233.123.38:8000/reciclador/subir', {
         method: 'POST',
         body: data,
     })
