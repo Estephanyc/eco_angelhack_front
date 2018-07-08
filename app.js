@@ -8,10 +8,15 @@ function previewImg(file) {
     }
     sendImage()
 }
-function sendImage(){ 
-    let image = document.getElementById("file").files
-    fetch('http://18.233.123.38:8000/reciclador/subir', {
-        method: 'POST', body: image
+function sendImage(){
+    let image = document.getElementById("file").files;
+
+    var data = new FormData()
+    data.append('image', image[0])
+
+    fetch('http://localhost:8000/reciclador/subir', {
+        method: 'POST',
+        body: data,
     })
     .then((response) => response.json())
     .then((responseJson) => {
@@ -87,9 +92,9 @@ alternative = (object) => {
             alternative.forEach(element => {
                 for (var k in element) {
                     document.getElementById('alternatives').innerHTML +=  ' ' + element[k] + '';
-                }   
+                }
             });
-                      
+
         })
         .catch((error) => {
             console.log(error)
