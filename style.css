@@ -16,7 +16,7 @@ p{
 .form{
     margin-top: 5%;
     text-align: center;
-   
+
     padding: 20px;
 }
 
@@ -68,3 +68,5 @@ p{
 {
 font-size: 26px;
 }
+
+#map { height: 180px; }
