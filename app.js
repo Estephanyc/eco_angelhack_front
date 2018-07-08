@@ -14,7 +14,7 @@ function sendImage(){
     var data = new FormData()
     data.append('image', image[0])
 
-    fetch('http://18.233.123.38:8000/reciclador/subir', {
+    fetch('http://localhost:8000/reciclador/subir', {
         method: 'POST',
         body: data,
     })
@@ -61,9 +61,7 @@ secondView =(object)=>{
     document.getElementById('second').style.display = 'block';
     document.getElementById('first').style.display = 'none';
     let composicion = object.response.data.composicion
-    for (var k in composicion) {
-        document.getElementById('composicion').innerHTML += k + ' ' + composicion[k] + ' ';
-    }
+    document.getElementById('composicion').innerHTML += 'Probablemente es de ' + composicion
     alternative(object);
     message(object)
     recyclingPoint(object);
@@ -72,7 +70,7 @@ message = (object) =>
 {
     let id = object.response.data.objeto_id;
     console.log(id)
-    fetch(`http://18.233.123.38:8000/reciclador/mensaje/${id}`)
+    fetch(`http://localhost:8000/reciclador/mensaje/${id}`)
         .then((response) => response.json())
         .then((responseJson) => {
             document.getElementById('message').innerHTML = responseJson.response.data;
@@ -85,16 +83,17 @@ message = (object) =>
 alternative = (object) => {
     let id = object.response.data.objeto_id;
     console.log(id)
-    fetch(`http://18.233.123.38:8000/reciclador/alternativas/${id}`)
+    fetch(`http://localhost:8000/reciclador/alternativas/${id}`)
         .then((response) => response.json())
         .then((responseJson) => {
             let alternative = responseJson.response.data
+            let lista = '<ul>';
             alternative.forEach(element => {
-                for (var k in element) {
-                    document.getElementById('alternatives').innerHTML +=  ' ' + element[k] + '';
-                }
+              console.log(element);
+                lista += '<li>' + element.descripcion + '</li>';
             });
-
+            lista += '</ul>';
+            document.getElementById('alternatives').innerHTML += lista;
         })
         .catch((error) => {
             console.log(error)
