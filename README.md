@@ -1,4 +1,4 @@
-# BioSscan
+# BioScan
 
 Bioscan fue desarrollado durante la hackathon de AngelHack y Bci en julio de 2018.
 
